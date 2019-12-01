@@ -1,5 +1,8 @@
 package com.pix.kotlindemo
 
+import java.nio.file.Files
+import java.nio.file.Paths
+
 class TestBase {
     fun test () {
         println("FUNC TestBase::test()");
@@ -22,6 +25,10 @@ class TestBase {
         testList()
         testClass()
 
+        // array
+        val asc = Array(5,{i -> (i * i).toString()})
+
+
     }
 
     // 带参数和返回值函数
@@ -32,7 +39,7 @@ class TestBase {
     // 自动推断函数
     fun sum1(a:Int,b:Int) = a + b
 
-    // 无返回值函数
+    // no-return function
     fun printSum(a:Int,b:Int) {
         println("$a + $b = ${a+b}")
     }
@@ -45,7 +52,7 @@ class TestBase {
 
     }
 
-    // 字符串模板
+    // string template
     fun testStringTemplate() {
         var a = 5
         var text = "a is $a"
@@ -63,13 +70,14 @@ class TestBase {
         for (item in items) {
             println(item)
         }
+        items.firstOrNull();
 
         for(index in items.indices) {
             println("$index is ${items[index]}")
         }
     }
 
-    // 测试类
+    // Test class
     data class Student(var name:String,var age:Int)
 
     object KTManager {
@@ -94,4 +102,13 @@ class TestBase {
         }
     }
 
+    // Trinocular operation
+    fun maxOf(a:Int,b:Int):Int  = if (a > b) a else b
+
+    fun inputStream() {
+        val stream = Files.newInputStream(Paths.get("/xxx/xxx"))
+        stream.buffered().reader().use { reader->
+            println(reader.readText())
+        }
+    }
 }
