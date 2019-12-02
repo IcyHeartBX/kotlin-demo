@@ -111,4 +111,9 @@ class TestBase {
             println(reader.readText())
         }
     }
+
+    class Invoice{}
+    class Empty
+    class Person(name:String) {}
+
 }
