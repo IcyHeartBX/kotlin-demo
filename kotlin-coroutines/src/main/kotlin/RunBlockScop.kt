@@ -18,5 +18,4 @@ fun main(args: Array<String>) = runBlocking<Unit>{
         println("coroutine scope print ...")
     }
     println("main  end print ...")
-
 }
