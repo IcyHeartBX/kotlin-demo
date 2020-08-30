@@ -10,7 +10,7 @@ object Main {
         println("---parse object---")
         var objString = "{\"name\":\"zhangsan\", \"age\":11}"
         var gson = Gson()
-        var user = gson.fromJson(objString,User::class.java)
+        var user = gson.fromJson<User>(objString)
         print(user)
 
         println("---parse list----")
@@ -19,7 +19,7 @@ object Main {
             "userlist":[{"name":"zhangsan","age":12},{"name":"lisi","age":18}]
         }
         """.trimIndent()
-        var userList = gson.fromJson(listString,UserList::class.java)
+        var userList = gson.fromJson<UserList>(listString)
         println(userList)
 
 
